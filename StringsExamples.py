@@ -1,3 +1,50 @@
+"""Replace each special symbol with # in the following string"""
+import string
+str1 = '/*Jon is @developer & musician!!'
+
+for i in string.punctuation:
+    str1 = str1.replace(i,'#')
+
+print(str1)
+
+"""Removal all characters from a string except integers"""
+import re
+str1 = 'I am 25 years and 10 months old'
+resu =""
+res = re.findall("[0-9]+?",str1)
+
+for i in res:
+    resu += i
+print(resu)
+
+
+
+"""Remove special symbols / punctuation from a string"""
+import re
+str1 = "/*Jon is @developer & musician"
+
+res = re.sub([A-Za-z], str1)
+print("New string is", res)"""
+
+""" Remove empty strings from a list of strings"""
+"""str_list = ["Emma", "Jon", "", "Kelly", None, "Eric", ""]
+res = list()
+for i in str_list:
+    if i == "" or i is None:
+        continue
+    else:
+        res.append(i)
+print(res)
+
+
+""" Split a string on hyphens"""
+str1 = "Emma-is-a-data-scientist"
+
+words = str1.split("-")
+
+for i in words:
+    print(i)
+
 """ Count all letters, digits, and special symbols from a given string"""
 import re
 
