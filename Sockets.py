@@ -17,3 +17,7 @@ while True:
     print((data.decode()))
 #Always close the socket because it takes up resources to run on both sides.
 mysocket.close()
+
+"""We have to use encode(), decode() becuase the data needs to be converted from UTF-8 (which is generally the 
+format outside our system) to Unicode (which the our system uses).
+"""
