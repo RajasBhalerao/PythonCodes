@@ -24,9 +24,10 @@ tags = soup('a')
 for i in range(count):
     urllink = tags[pos-1].get('href', None)
     print(tags[pos-1].contents[0], urllink)
-    html = urllib.request.urlopen(urllink, context=ctx).read()
-    soup = BeautifulSoup(html, 'html.parser')
-    tags = soup('a')
+    newhtml = urllib.request.urlopen(urllink, context=ctx).read()
+    newsoup = BeautifulSoup(newhtml, 'html.parser')
+    #Now you need to refresh the page for the for loop so wee will keep the variable name (tags) same.
+    tags = newsoup('a')
 
 
 """WebScraper for the html (http://py4e-data.dr-chuck.net/comments_1800573.html)
