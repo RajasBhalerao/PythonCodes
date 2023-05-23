@@ -1,7 +1,21 @@
 # Binary Search Algorithm
+"""As binary serach requires a sorted list, we have also implemented a bubble sort in the code"""
 
 def BinarySerach():
     global ilist, target, mid
+
+    #Bubble sort
+    length = len(ilist)
+    for i in range(length):
+        for j in range(0, length - i - 1):
+            if ilist[j] > ilist[j + 1]:
+                ilist[j], ilist[j + 1] = ilist[j + 1], ilist[j]
+    print("Sorted List is: ", ilist)
+
+    low = 0
+    high = len(ilist)-1
+
+
     low = 0
     high = len(ilist)-1
 
