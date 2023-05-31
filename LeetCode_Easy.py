@@ -1,3 +1,104 @@
+"""Recursive Palindrome"""
+
+n = int(input("Enter num:"))
+
+def reverse(num):
+    if num<10:
+        return num
+    else:
+        return int(str(num%10) + str(reverse(num//10)))
+
+def palin(num):
+    if num == reverse(num):
+        return 1
+    else:
+        return 0
+
+if palin(n) == 1:
+    print("YEs")
+else:
+    print("no")
+
+
+"""Iterative Fibonacci Series"""
+num = int(input("Enter number:"))
+first, second = 0, 1
+res = 0
+for i in range(0,num):
+    if i <=1:
+        res = i
+
+    else:
+        res = first + second
+        first = second
+        second = res
+    print(res)
+
+"""Prime Numbers"""
+n = int(input("Enter number:"))
+
+for i in range(2, n):
+    if n % i == 0:
+        print("No")
+        break
+    else:
+        print("Yes")
+        break
+
+"""Armstrong Numbers"""
+
+num = 371
+res = 0
+length = len(str(num))
+
+for i in str(num):
+    res += int(i)**length
+
+if res == num:
+    print("Yes")
+else:
+    print("No")
+
+
+"""20. Valid Parenthese"""
+""" We are using a stack linear data structure which uses FILO method. So we are essentially first creating
+an empty stack and then just adding the open parentheses and checking if the next char is a closed parentheses
+ or not. If yes then we just pop out the pair parentheses and finally if the stack if empty we return True else
+ False
+
+ Key ds used:
+ 1) Stack --> which is FILO
+ 2) For loop to iterate through the string
+ 3) If conditions to check if items are present in the dictionary or stack
+ """
+
+s = "(])"
+
+
+class Solution:
+    def isValid(self, s: str) -> bool:
+        stack = []
+        for char in s:
+            if char == '(' or char == '{' or char == '[':
+                stack.append(char)
+            else:
+                if not stack:
+                    return False
+                if char == ')' and stack[-1] == '(':
+                    stack.pop()
+                elif char == '}' and stack[-1] == '{':
+                    stack.pop()
+                elif char == ']' and stack[-1] == '[':
+                    stack.pop()
+                else:
+                    return False
+        return not stack
+
+
+sol = Solution()
+res = sol.isValid(s)
+print(res)
+
 """14.Longest Common Prefix """
 
 """In this case we are going to assign the entire first word as the result and then check if the word
