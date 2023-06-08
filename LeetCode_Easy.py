@@ -1,12 +1,38 @@
+"""VarArgs and DocStrings"""
+"""
+When we declare a starred parameter such as *param , then all the positional arguments from that point till
+the end are collected as a tuple called 'param'.
+Similarly, when we declare a double-starred parameter such as **param , then all the keyword arguments from 
+that point till the end are collected as a dictionary called 'param'.
+
+"""
+def max(x, *y):
+    '''Welcome to max function.'''
+
+    for i in y:
+        if i > x:
+            print("I {} is greater than {}".format(i, x))
+        else:
+            print("{} is greater than I {}".format(x, i))
+
+
+"""If you want to print out the comments of a function or code you can use docstrings function to 
+do so use. It only runs when the comment is within a function, with ''' ''' and before any loops. """
+print(max.__doc__)
+
+max(5, 1, 2, 6, 7)
+
 """Recursive Palindrome"""
 
 n = int(input("Enter num:"))
 
+
 def reverse(num):
-    if num<10:
+    if num < 10:
         return num
     else:
-        return int(str(num%10) + str(reverse(num//10)))
+        return int(str(num % 10) + str(reverse(num // 10)))
+
 
 def palin(num):
     if num == reverse(num):
@@ -14,18 +40,18 @@ def palin(num):
     else:
         return 0
 
+
 if palin(n) == 1:
     print("YEs")
 else:
     print("no")
 
-
 """Iterative Fibonacci Series"""
 num = int(input("Enter number:"))
 first, second = 0, 1
 res = 0
-for i in range(0,num):
-    if i <=1:
+for i in range(0, num):
+    if i <= 1:
         res = i
 
     else:
@@ -52,13 +78,12 @@ res = 0
 length = len(str(num))
 
 for i in str(num):
-    res += int(i)**length
+    res += int(i) ** length
 
 if res == num:
     print("Yes")
 else:
     print("No")
-
 
 """20. Valid Parenthese"""
 """ We are using a stack linear data structure which uses FILO method. So we are essentially first creating
@@ -104,7 +129,8 @@ print(res)
 """In this case we are going to assign the entire first word as the result and then check if the word
 is in the list. If not then it will keep on reducing the letters from the end until common prefix is found"""
 
-strs = ["flower","flow","flight"]
+strs = ["flower", "flow", "flight"]
+
 
 class Solution:
     def longestCommonPrefix(self, strs: list[str]) -> str:
@@ -114,13 +140,14 @@ class Solution:
         for i in strs[1:]:
 
             while result != i[0:reslen]:
-                result = result[0:(reslen-1)]
+                result = result[0:(reslen - 1)]
                 reslen -= 1
                 if reslen == 0:
-                    return("")
-        return(result)
+                    return ("")
+        return (result)
 
-Sol= Solution()
+
+Sol = Solution()
 res = Sol.longestCommonPrefix(strs)
 print(res)
 
@@ -136,8 +163,8 @@ Smallest to Largest --> Negative
 
 """
 
-
 s = "MCMXCIV"
+
 
 class Solution:
     def romanToInt(self, s: str) -> int:
@@ -152,30 +179,31 @@ class Solution:
         }
         res = 0
         for i in range(len(s)):
-            if i + 1 < len(s) and roman[s[i]] < roman[s[i+1]]:
+            if i + 1 < len(s) and roman[s[i]] < roman[s[i + 1]]:
                 res -= roman[s[i]]
             else:
                 res += roman[s[i]]
         return res
 
+
 Sol = Solution()
 result = Sol.romanToInt(s)
 print(result)
-
 
 """Given an array of integers nums and an integer target, return indices of the two numbers such that they
 add up to target.You may assume that each input would have exactly one solution, and you may not use the same
 element twice.You can return the answer in any order."""
 
-num = (2,4,6,1)
+num = (2, 4, 6, 1)
 target = 3
 
+
 class solution():
-    def twonums(self,num, target):
+    def twonums(self, num, target):
         dic = dict()
         for i in range(len(num)):
-            difference = target -num[i]
-            print("num of i:",num[i])
+            difference = target - num[i]
+            print("num of i:", num[i])
             print("i:", i)
             if difference in dic:
                 return [dic[difference], i]
@@ -186,5 +214,5 @@ class solution():
 s = solution()
 print(num)
 
-result = s.twonums(num,target)
+result = s.twonums(num, target)
 print(result)
