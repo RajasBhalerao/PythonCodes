@@ -45,6 +45,31 @@ if palin(n) == 1:
     print("YEs")
 else:
     print("no")
+"""Recursive Fibonacci Series"""
+"""0,1,1,2,3,5,8,13,21,34...."""
+
+def fibonacci(num):
+    first = 0
+    second = 1
+
+    if num<0:
+        return False
+    elif num==1:
+        print(first)
+    elif num==2:
+        print(first)
+        print(second)
+    else:
+        print(first)
+        print(second)
+        for i in range(0, num-2):
+            res = first + second
+            first = second
+            second = res
+            print(res)
+
+num =  int(input("enter num:"))
+fibonacci(num)
 
 """Iterative Fibonacci Series"""
 num = int(input("Enter number:"))
